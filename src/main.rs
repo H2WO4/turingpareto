@@ -1,6 +1,9 @@
+#![allow(unused)]
+
 use clap::{Parser, Subcommand};
 
 mod csv;
+mod graph;
 mod list;
 
 #[derive(Parser)]
@@ -24,13 +27,7 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        C::Graph { level } => generate_graph(level),
+        C::Graph { level } => graph::generate(level),
         C::List => list::handle(),
-    }
-}
-
-fn generate_graph(level: &str) {
-    for record in csv::from_level(level) {
-        println!("{record:?}")
     }
 }

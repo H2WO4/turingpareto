@@ -5,10 +5,10 @@ use serde::Deserialize;
 #[allow(dead_code)]
 #[derive(Debug, Deserialize)]
 pub struct Record {
-    level: String,
-    gates: u64,
-    delay: u64,
-    ticks: u64,
+    pub level: String,
+    pub gates: u64,
+    pub delay: u64,
+    pub ticks: u64,
 }
 
 pub static DATA: LazyLock<Box<[Record]>> = LazyLock::new(|| {
