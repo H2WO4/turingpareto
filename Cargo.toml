@@ -1,0 +1,10 @@
+[package]
+name = "turingpareto"
+version = "0.1.0"
+edition = "2024"
+authors = ["H2WO4"]
+description = "Generate graphs of the Pareto frontier of Turing Complete levels"
+
+[dependencies]
+clap = { version = "4.6.1", features = ["derive"] }
+plotters = "0.3.7"
