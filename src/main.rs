@@ -1,5 +1,6 @@
 use clap::{Parser, Subcommand};
 
+mod csv;
 mod list;
 
 #[derive(Parser)]
@@ -29,5 +30,7 @@ fn main() {
 }
 
 fn generate_graph(level: &str) {
-    println!("{level}");
+    for record in csv::from_level(level) {
+        println!("{record:?}")
+    }
 }
