@@ -1,5 +1,7 @@
 use clap::{Parser, Subcommand};
 
+mod list;
+
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Cli {
@@ -22,7 +24,7 @@ fn main() {
 
     match &cli.command {
         C::Graph { level } => generate_graph(level),
-        C::List => todo!(),
+        C::List => list::handle(),
     }
 }
 
