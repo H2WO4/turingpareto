@@ -1,11 +1,8 @@
-const LEVELS: [&str; 51] = [
-    "ai_showdown",
+const LEVELS_2D: [&str; 35] = [
     "alu_1",
     "alu_2",
     "and_gate_3",
     "any_doubles",
-    "binary_programming",
-    "binary_search",
     "bit_adder",
     "bit_inverter",
     "byte_adder",
@@ -18,43 +15,54 @@ const LEVELS: [&str; 51] = [
     "byte_or",
     "byte_shift",
     "byte_xor",
-    "capitalize",
-    "circumference",
-    "compute_xor",
     "conditions",
     "counting_signals",
-    "dance",
     "decoder",
     "decoder1",
     "decoder3",
-    "divide",
-    "flood_predictor",
     "full_adder",
-    "maze",
-    "mod_4",
     "multiply",
     "not_gate",
     "odd_number_of_signals",
     "odd_ticks",
     "or_gate_3",
-    "ram",
     "ram_component",
-    "robot_racing",
     "saving_bytes",
     "saving_gracefully",
     "second_tick",
     "signed_negator",
-    "sorter",
     "stack",
-    "tick_tock",
-    "tower",
     "xnor",
     "xor_gate",
 ];
 
+const LEVELS_3D: [&str; 16] = [
+    "ai_showdown",
+    "binary_programming",
+    "binary_search",
+    "capitalize",
+    "circumference",
+    "compute_xor",
+    "dance",
+    "divide",
+    "flood_predictor",
+    "maze",
+    "mod_4",
+    "ram",
+    "robot_racing",
+    "sorter",
+    "tick_tock",
+    "tower",
+];
+
 pub fn handle() {
-    println!("Available levels:");
-    for level in LEVELS {
+    println!("Available circuit levels:");
+    for level in LEVELS_2D {
+        println!("- {level}");
+    }
+    println!();
+    println!("Available programming levels:");
+    for level in LEVELS_3D {
         println!("- {level}");
     }
 }
