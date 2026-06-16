@@ -1,4 +1,4 @@
-const LEVELS_2D: [&str; 35] = [
+pub const LEVELS_2D: [&str; 35] = [
     "alu_1",
     "alu_2",
     "and_gate_3",
@@ -36,7 +36,7 @@ const LEVELS_2D: [&str; 35] = [
     "xor_gate",
 ];
 
-const LEVELS_3D: [&str; 16] = [
+pub const LEVELS_3D: [&str; 16] = [
     "ai_showdown",
     "binary_programming",
     "binary_search",

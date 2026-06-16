@@ -26,7 +26,7 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        C::Graph { level } => graph::generate(level),
+        C::Graph { level } => graph::handle(level),
         C::List => list::handle(),
     }
 }
