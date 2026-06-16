@@ -2,8 +2,7 @@ use std::sync::LazyLock;
 
 use serde::Deserialize;
 
-#[allow(dead_code)]
-#[derive(Debug, Deserialize)]
+#[derive(Clone, Debug, Deserialize, PartialEq, Eq)]
 pub struct Record {
     pub level: String,
     pub gates: u64,
