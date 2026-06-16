@@ -5,6 +5,7 @@ use clap::{Parser, Subcommand};
 mod csv;
 mod graph;
 mod list;
+mod pareto;
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
