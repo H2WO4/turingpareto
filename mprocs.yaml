@@ -2,14 +2,11 @@ procs:
   build:
     shell: cargo build
     autostart: false
-  run:
-    shell: cargo run
-    autostart: false
-  run-release:
-    shell: cargo run --release
-    autostart: false
   copy:
     shell: cp -f target/debug/turingpareto .
+    autostart: false
+  build-release:
+    shell: cargo build --release
     autostart: false
   copy-release:
     shell: cp -f target/release/turingpareto .
