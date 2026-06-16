@@ -19,6 +19,19 @@ The Pareto frontier are the solutions of a level such that there exist no soluti
   - [ ] Clean this data from cheated scores
   - [ ] Allow switching between 1.0 and 2.0 leaderboards
 
+## Help
+
+**Usage:** turingpareto <COMMAND>
+
+**Commands:**
+  list   List all available levels
+  graph  Generate the graph of a level
+  help   Print this message or the help of the given subcommand(s)
+
+**Options:**
+  -h, --help     Print help
+  -V, --version  Print version
+
 ## Example
 
-![Pareto frontier of the level "The Product of Nibbles"](./example_img.png)
+![Pareto frontier of the level "The Product of Nibbles"](./example_image.png)
