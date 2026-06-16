@@ -1,6 +1,6 @@
 *.csv
+*.png
 turingpareto
-images/
 
 # Added by cargo
 /target

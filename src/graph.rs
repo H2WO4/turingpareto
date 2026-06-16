@@ -3,10 +3,7 @@ use plotters::prelude::*;
 use crate::csv;
 
 pub fn generate(level: &str) {
-    let records = csv::from_level(level)
-        .into_iter()
-        .filter(|&record| record.gates < 1024 && record.delay < 768)
-        .collect::<Box<_>>();
+    let records = csv::from_level(level).filter(|&record| record.gates < 1024 && record.delay < 768);
 
     let filename = format!("images/{level}.png");
     let drawing_area = BitMapBackend::new(&filename, (1024, 768)).into_drawing_area();
@@ -22,10 +19,6 @@ pub fn generate(level: &str) {
 
     ctx.configure_mesh().draw().unwrap();
 
-    ctx.draw_series(
-        records
-            .into_iter()
-            .map(|val| Circle::new((val.gates, val.delay), 3, BLUE)),
-    )
-    .unwrap();
+    ctx.draw_series(records.map(|val| Circle::new((val.gates, val.delay), 3, BLUE)))
+        .unwrap();
 }

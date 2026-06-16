@@ -19,6 +19,6 @@ pub static DATA: LazyLock<Box<[Record]>> = LazyLock::new(|| {
         .collect()
 });
 
-pub fn from_level(level: &str) -> Box<[&Record]> {
-    DATA.iter().filter(|record| record.level == level).collect()
+pub fn from_level(level: &str) -> impl Iterator<Item = &Record> {
+    DATA.iter().filter(move |record| record.level == level)
 }
