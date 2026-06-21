@@ -18,9 +18,9 @@ enum Commands {
     List,
     /// Generate the graph of a level
     Graph {
-        // The level ID to operate on
+        /// The level ID to operate on
         level:    String,
-        // If the level is a programming level, whether to output an animated gif
+        /// If the level is a programming level, whether to output an animated gif
         #[arg(long, default_value_t = false)]
         animated: bool,
     },

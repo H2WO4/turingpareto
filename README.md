@@ -16,6 +16,7 @@ The Pareto frontier are the solutions of a level such that there exist no soluti
 - [x] Highlight the Sum and Product records
 - [x] Generate 3D graphs for programming levels
   - [ ] Allow configuration of GIF speed
+  - [ ] Fix the flickering labels
   - [ ] Label the axes in 3D?
   - [ ] Make the circles 3D objects?
 - [ ] Dark mode

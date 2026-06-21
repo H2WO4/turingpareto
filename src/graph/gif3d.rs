@@ -79,7 +79,7 @@ pub fn generate(level: &str) {
         ctx.draw_series([Circle::new((0, 0, 0), 0, WHITE)])
             .unwrap()
             .label("Sum")
-            .legend(|pos| Circle::new(pos, 3, RED.filled()));
+            .legend(|pos| Circle::new(pos, 5, RED.filled()));
 
         // Draw points
         ctx.draw_series(
@@ -89,7 +89,7 @@ pub fn generate(level: &str) {
         )
         .unwrap()
         .label("Product")
-        .legend(|pos| Circle::new(pos, 3, MAGENTA.filled()));
+        .legend(|pos| Circle::new(pos, 5, MAGENTA.filled()));
 
 
         // Draw legend

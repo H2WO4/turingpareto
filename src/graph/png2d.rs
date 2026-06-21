@@ -59,17 +59,17 @@ pub fn generate(level: &str) {
     ctx.draw_series(LineSeries::new(records.iter().map(|r| (r.0.gates, r.0.delay)), BLUE))
         .unwrap()
         .label("Sum")
-        .legend(|pos| Circle::new(pos, 3, RED.filled()));
+        .legend(|pos| Circle::new(pos, 5, RED.filled()));
 
     // Draw points
     ctx.draw_series(
         records
             .iter()
-            .map(|r| Circle::new((r.0.gates, r.0.delay), 5, r.1.filled())),
+            .map(|r| Circle::new((r.0.gates, r.0.delay), 10, r.1.filled())),
     )
     .unwrap()
     .label("Product")
-    .legend(|pos| Circle::new(pos, 3, MAGENTA.filled()));
+    .legend(|pos| Circle::new(pos, 5, MAGENTA.filled()));
 
 
     // Draw legend
