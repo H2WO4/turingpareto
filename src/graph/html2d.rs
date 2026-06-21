@@ -6,31 +6,27 @@ use plotly::{Layout, Plot, Scatter};
 use crate::{csv, pareto};
 
 pub fn generate(level: &str) {
-    let vals = pareto::filter_2d(csv::from_level(level));
+    let records = pareto::filter_2d(csv::from_level(level));
 
     let sum: Vec<_> = {
-        let min_sum = vals.iter().map(|r| r.sum2()).min().unwrap();
-        vals.iter()
+        let min_sum = records.iter().map(|r| r.sum2()).min().unwrap();
+        records
+            .iter()
             .filter(|r| r.sum2() == min_sum)
             .cloned()
             .collect()
     };
     let product: Vec<_> = {
-        let min_product = vals.iter().map(|r| r.product2()).min().unwrap();
-        vals.iter()
+        let min_product = records.iter().map(|r| r.product2()).min().unwrap();
+        records
+            .iter()
             .filter(|r| r.product2() == min_product)
             .cloned()
             .collect()
     };
 
-    let records: Vec<_> = vals
-        .into_iter()
-        .filter(|r| !sum.contains(r) && !product.contains(r))
-        .collect();
-
     // Initialize the plot
     let mut plot = Plot::new();
-
     plot.set_layout(
         Layout::new()
             .title(level)
