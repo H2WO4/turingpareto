@@ -14,17 +14,17 @@ pub fn handle(level: &str) {
 
 fn generate_2d(level: &str) {
     let records: Vec<_> = {
-        let vals = pareto::filter(csv::from_level(level));
-        let sum = *vals.iter().min_by_key(|r| r.gates + r.delay).unwrap();
-        let product = *vals.iter().min_by_key(|r| r.gates * r.delay).unwrap();
+        let vals = pareto::filter_2d(csv::from_level(level));
+        let sum = vals.iter().min_by_key(|r| r.gates + r.delay).cloned();
+        let product = vals.iter().min_by_key(|r| r.gates * r.delay).cloned();
 
         vals.into_iter()
             .map(|r| {
                 (
                     r,
-                    if r == sum {
+                    if sum.is_some_and(|s| s == r) {
                         RED
-                    } else if r == product {
+                    } else if product.is_some_and(|p| p == r) {
                         MAGENTA
                     } else {
                         BLUE
