@@ -17,7 +17,13 @@ enum Commands {
     /// List all available levels
     List,
     /// Generate the graph of a level
-    Graph { level: String },
+    Graph {
+        // The level ID to operate on
+        level:    String,
+        // If the level is a programming level, whether to output an animated gif
+        #[arg(long, default_value_t = false)]
+        animated: bool,
+    },
 }
 
 fn main() {
@@ -26,7 +32,7 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        C::Graph { level } => graph::handle(level),
+        C::Graph { level, animated } => graph::handle(level, *animated),
         C::List => list::handle(),
     }
 }

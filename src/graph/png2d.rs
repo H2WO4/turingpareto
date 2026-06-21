@@ -1,18 +1,8 @@
 use plotters::prelude::*;
 
-use crate::{csv, list, pareto};
+use crate::{csv, pareto};
 
-pub fn handle(level: &str) {
-    if list::LEVELS_2D.contains(&level) {
-        generate_2d(level);
-    } else if list::LEVELS_3D.contains(&level) {
-        todo!()
-    } else {
-        eprintln!("Unknown level ID!")
-    }
-}
-
-fn generate_2d(level: &str) {
+pub fn generate(level: &str) {
     let records: Vec<_> = {
         let vals = pareto::filter_2d(csv::from_level(level));
         let sum = vals.iter().min_by_key(|r| r.gates + r.delay).cloned();
