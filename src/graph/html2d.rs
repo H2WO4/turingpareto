@@ -1,6 +1,6 @@
 use plotly::color::NamedColor;
 use plotly::common::{Marker, Mode};
-use plotly::layout::{Axis, AxisRange, AxisType, LayoutScene};
+use plotly::layout::{Axis, AxisRange, AxisType};
 use plotly::{Layout, Plot, Scatter};
 
 use crate::{csv, pareto};
