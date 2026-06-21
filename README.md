@@ -14,10 +14,15 @@ The Pareto frontier are the solutions of a level such that there exist no soluti
 
 - [x] Generate 2D graphs for circuits levels
 - [x] Highlight the Sum and Product records
-- [ ] Generate 3D graphs for programming levels
+- [x] Generate 3D graphs for programming levels
+  - [ ] Allow configuration of GIF speed
+  - [ ] Label the axes in 3D?
+  - [ ] Make the circles 3D objects?
+- [ ] Dark mode
 - [ ] Automatically download data from the Leaderboard API
   - [ ] Clean this data from cheated scores
-  - [ ] Allow switching between 1.0 and 2.0 leaderboards
+  - [ ] Allow switching between 1.0 and 2.0 leaderboards  
+        The 2.0 API is not yet accessible
 
 ## Example
 

@@ -47,7 +47,7 @@ pub fn generate(level: &str) {
         .build_cartesian_2d(0..max_width, 0..max_height)
         .unwrap();
 
-    // Setup axises
+    // Setup axes
     ctx.configure_mesh()
         .x_desc("Gates")
         .y_desc("Delay")

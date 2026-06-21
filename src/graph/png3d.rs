@@ -70,7 +70,7 @@ pub fn generate(level: &str) {
         p.into_matrix()
     });
 
-    // Setup axises
+    // Setup axes
     ctx.configure_axes().tick_size(16).draw().unwrap();
 
     ctx.draw_series([Circle::new((0, 0, 0), 0, WHITE)])
