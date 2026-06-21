@@ -6,6 +6,7 @@ mod csv;
 mod graph;
 mod list;
 mod pareto;
+mod types;
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]

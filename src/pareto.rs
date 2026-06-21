@@ -1,4 +1,4 @@
-use crate::csv::Record;
+use crate::types::Record;
 
 pub fn filter_2d<'a>(records: impl Iterator<Item = &'a Record>) -> Vec<&'a Record> {
     records.fold(vec![], move |mut acc: Vec<&Record>, record| {

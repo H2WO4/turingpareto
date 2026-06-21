@@ -1,14 +1,6 @@
 use std::sync::LazyLock;
 
-use serde::Deserialize;
-
-#[derive(Clone, Debug, Deserialize, PartialEq, Eq)]
-pub struct Record {
-    pub level: String,
-    pub gates: u64,
-    pub delay: u64,
-    pub ticks: u64,
-}
+use crate::types::Record;
 
 pub static DATA: LazyLock<Box<[Record]>> = LazyLock::new(|| {
     csv::Reader::from_path("data.csv")
