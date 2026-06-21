@@ -1,6 +1,5 @@
 *.csv
-images/*.png
-images/*.gif
+images/
 turingpareto
 
 # Added by cargo

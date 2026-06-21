@@ -1,3 +1,5 @@
+#![allow(unused)]
+
 use clap::{Parser, Subcommand};
 
 mod csv;

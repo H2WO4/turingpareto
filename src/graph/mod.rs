@@ -1,7 +1,7 @@
 use crate::list;
 
 mod gif3d;
-mod png2d;
+mod html2d;
 mod png3d;
 
 pub fn handle(level: &str, animated: bool) {
@@ -9,7 +9,7 @@ pub fn handle(level: &str, animated: bool) {
         if animated {
             eprintln!("Cannot generate animated graph of a component level!")
         }
-        png2d::generate(level);
+        html2d::generate(level);
     } else if list::LEVELS_3D.contains(&level) {
         if animated {
             gif3d::generate(level);
