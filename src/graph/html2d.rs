@@ -9,16 +9,16 @@ pub fn generate(level: &str) {
     let vals = pareto::filter_2d(csv::from_level(level));
 
     let sum: Vec<_> = {
-        let min_sum = vals.iter().map(|r| r.gates + r.delay).min().unwrap();
+        let min_sum = vals.iter().map(|r| r.sum2()).min().unwrap();
         vals.iter()
-            .filter(|r| (r.gates + r.delay) == min_sum)
+            .filter(|r| r.sum2() == min_sum)
             .cloned()
             .collect()
     };
     let product: Vec<_> = {
-        let min_product = vals.iter().map(|r| r.gates * r.delay).min().unwrap();
+        let min_product = vals.iter().map(|r| r.product2()).min().unwrap();
         vals.iter()
-            .filter(|r| (r.gates * r.delay) == min_product)
+            .filter(|r| r.product2() == min_product)
             .cloned()
             .collect()
     };
@@ -27,15 +27,6 @@ pub fn generate(level: &str) {
         .into_iter()
         .filter(|r| !sum.contains(r) && !product.contains(r))
         .collect();
-
-    let max_width = {
-        let val = records.iter().map(|r| r.gates).max().unwrap_or(0);
-        val + (val / 10) + 1
-    };
-    let max_height = {
-        let val = records.iter().map(|r| r.delay).max().unwrap_or(0);
-        val + (val / 10) + 1
-    };
 
     // Initialize the plot
     let mut plot = Plot::new();
