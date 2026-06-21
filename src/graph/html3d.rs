@@ -1,11 +1,11 @@
 use plotly::color::NamedColor;
 use plotly::common::{Marker, Mode};
-use plotly::layout::{Axis, AxisType, LayoutScene};
-use plotly::{Layout, Plot, Scatter, Scatter3D};
+use plotly::layout::{Axis, AxisRange, AxisType, LayoutScene};
+use plotly::{Layout, Plot, Scatter3D};
 
 use crate::{csv, pareto};
 
-pub fn generate(level: &str) {
+pub fn generate(level: &str, log: bool) {
     let records = pareto::filter_3d(csv::from_level(level));
 
     let sums: Vec<_> = {
@@ -30,9 +30,23 @@ pub fn generate(level: &str) {
     plot.set_layout(
         Layout::new().title(level).width(1280).height(960).scene(
             LayoutScene::new()
-                .x_axis(Axis::new().title("Gates"))
-                .y_axis(Axis::new().title("Ticks"))
-                .z_axis(Axis::new().title("Delay")),
+                .x_axis(if log {
+                    Axis::new()
+                        .title("Gates")
+                        .type_(AxisType::Log)
+                        .range(AxisRange::lower(0))
+                } else {
+                    Axis::new().title("Gates").range(AxisRange::lower(0))
+                })
+                .y_axis(if log {
+                    Axis::new()
+                        .title("Ticks")
+                        .type_(AxisType::Log)
+                        .range(AxisRange::lower(0))
+                } else {
+                    Axis::new().title("Ticks").range(AxisRange::lower(0))
+                })
+                .z_axis(Axis::new().title("Delay").range(AxisRange::lower(0))),
         ),
     );
 

@@ -1,5 +1,3 @@
-#![allow(unused)]
-
 use clap::{Parser, Subcommand};
 
 mod csv;
@@ -23,6 +21,9 @@ enum Commands {
     Graph {
         /// The level ID to operate on
         level: String,
+        /// Whether to use a log scale for "Gates" and "Ticks"
+        #[arg(short, long, default_value_t = false)]
+        log:   bool,
     },
 }
 
@@ -32,7 +33,7 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        C::Graph { level } => graph::handle(level),
+        C::Graph { level, log } => graph::handle(level, *log),
         C::List => list::handle(),
     }
 }

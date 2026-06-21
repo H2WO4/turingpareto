@@ -1,11 +1,11 @@
 use plotly::color::NamedColor;
 use plotly::common::{Marker, Mode};
-use plotly::layout::Axis;
+use plotly::layout::{Axis, AxisRange, AxisType, LayoutScene};
 use plotly::{Layout, Plot, Scatter};
 
 use crate::{csv, pareto};
 
-pub fn generate(level: &str) {
+pub fn generate(level: &str, log: bool) {
     let records = pareto::filter_2d(csv::from_level(level));
 
     let sum: Vec<_> = {
@@ -30,8 +30,17 @@ pub fn generate(level: &str) {
     plot.set_layout(
         Layout::new()
             .title(level)
-            .x_axis(Axis::new().title("Gates"))
-            .y_axis(Axis::new().title("Delay")),
+            .width(1280)
+            .height(960)
+            .x_axis(if log {
+                Axis::new()
+                    .title("Gates")
+                    .range(AxisRange::lower(0))
+                    .type_(AxisType::Log)
+            } else {
+                Axis::new().title("Gates").range(AxisRange::lower(0))
+            })
+            .y_axis(Axis::new().title("Delay").range(AxisRange::lower(0))),
     );
 
     // Draw the frontier
